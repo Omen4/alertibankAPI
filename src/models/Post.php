@@ -3,7 +3,7 @@
 namespace models;
 class Post
 {
-    //DbConnectionSingleton necessities
+    //DbConnection necessities
     private $conn;
     private $table = 'posts';
 

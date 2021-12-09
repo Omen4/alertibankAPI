@@ -1,11 +1,15 @@
 <?php
 
- class DbConnectionSingleton
+namespace daos;
+use PDO;
+use PDOException;
+
+class DbConnection
 {
+
     public function connect()
     {
-        $this->conn = null;
-        $dbConfig = include("./src/config.php");
+        $dbConfig = include("./src/config/dbConfig.php");
 
         try {
             $this->conn = new PDO(
