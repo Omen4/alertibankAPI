@@ -2,6 +2,7 @@
 
 namespace daos;
 
+use models\Client;
 use PDO;
 
 class ClientDao extends DbConnection
@@ -23,11 +24,11 @@ class ClientDao extends DbConnection
         if (next($statement)) {
             $clientsList = [];
             foreach ($statement as $iterator => $client) {
-                $clientsList[] = new Client($statement['name'], $statement['email'], $statement['password']);
+                $clientsList[] = new Client($statement['id'], $statement['name'], $statement['email'], $statement['password']);
             }
             return $clientsList;
         } else {
-            return new Client($statement['name'], $statement['email'], $statement['password']);
+            return new Client($statement['id'], $statement['name'], $statement['email'], $statement['password']);
         }
 //        return $statement;
     }

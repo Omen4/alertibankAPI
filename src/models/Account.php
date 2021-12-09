@@ -25,53 +25,34 @@ class Account
         $this->clientId = $clientId;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getAccountId()
     {
         return $this->accountId;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getWording()
     {
         return $this->wording;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getBalance()
     {
         return $this->balance;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getOverdraft()
     {
         return $this->overdraft;
     }
 
-    /**
-     * @return mixed
-     */
+
     public function getClientId()
     {
         return $this->clientId;
     }
 
-    /**
-     * @return mixed
-     */
-    public function transferFund($amount, $accountNumber){
-        if ($isAuth){
-
-        }
-
-    }
 }
