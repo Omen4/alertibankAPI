@@ -1,5 +1,8 @@
 <?php
 //Headers
+use config\Database;
+use models\Post;
+
 header('Access-Control-Allow-Origin: *'); // * full access
 header('Content-Type: application/json');
 

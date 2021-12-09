@@ -3,10 +3,10 @@
 class Database
 {
     //Parameters
-    private $host = 'localhost';
-    private $db_name = 'myblog';
-    private $username = 'root';
-    private $password = 'root';
+    private $host = ' ars-virtualis.org';
+    private $db_name = 'bank_app';
+    private $username = 'bank_app';
+    private $password = 'XnJjkZKNnMHInk7XPiIXwopoQELJeJVBIZhOOO8fDGnS2SIJcl6iYYub5LwPfVX';
     private $conn;
 
     //Connection
@@ -17,7 +17,7 @@ class Database
 
         try {
             $this->conn = new PDO(
-                'mysql:host=' . $this->host . ';dbname=' . $this->db_name,
+                'postgres:host=' . $this->host . ';dbname=' . $this->db_name,
                 $this->username,
                 $this->password);
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
