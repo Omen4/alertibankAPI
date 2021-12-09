@@ -65,5 +65,13 @@ class Account
         return $this->clientId;
     }
 
+    /**
+     * @return mixed
+     */
+    public function transferFund($amount, $accountNumber){
+        if ($isAuth){
 
+        }
+
+    }
 }

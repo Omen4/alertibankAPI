@@ -1,5 +1,6 @@
 <?php
 
+namespace test\unit\models;
 
 use models\Client;
 use PHPUnit\Framework\TestCase;
@@ -7,19 +8,19 @@ use PHPUnit\Framework\TestCase;
 class ClientTest extends TestCase
 {
     /**
+     * @test
      * @dataProvider provideClient
      */
     public function testCreateClient($name, $mail, $password)
     {
         $client = new Client($name, $mail, $password);
-        $this->assertTrue->assertSame($name, $client->getName());
-        $this->assertTrue->assertSame($mail, $client->getEmail());
-        $this->assertTrue->assertSame($password, $client->getPassword());
+        $this->assertSame($name, $client->getName());
+        $this->assertSame($mail, $client->getEmail());
+        $this->assertSame($password, $client->getPassword());
 
     }
 
-
-    public function provideClientInfo()
+    public function provideClient()
     {
         return array(
             array('GUTH', 'a.g@gmail.com', 'password'),

@@ -1,6 +1,7 @@
 <?php
 
 namespace models;
+
 class Client
 {
     private $idClient;
@@ -10,14 +11,12 @@ class Client
     private $accountList = [];
 
     /**
-     * @param $idClient
      * @param $name
      * @param $email
      * @param $password
      */
-    public function __construct($idClient, $name, $email, $password)
+    public function __construct($name, $email, $password)
     {
-        $this->idClient = $idClient;
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;

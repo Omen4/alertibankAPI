@@ -4,6 +4,14 @@
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/test/unit" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit/tests/Extensions" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit/tests/Framework" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit/tests/Regression" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit/tests/Runner" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit/tests/TextUI" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit/tests/Util" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/comparator" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/phpunit/phpunit" />
@@ -29,6 +37,10 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/exporter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/environment" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/type-resolver" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/phpdocumentor/reflection-common" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/sebastian/object-enumerator" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
