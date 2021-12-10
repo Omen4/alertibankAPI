@@ -11,12 +11,12 @@ include_once '../config/database.php';
 include_once '../class/employees.php';
 
 $dbConnection = new DbConnection();
-$db = $dbConnection->getConnection();
+$db = $dbConnection->connect();
 
 $items = new ClientDao($db);
 
-$statement = $items->getClients();
-$itemCount = $items->rowCount();
+$statement = $items->get();
+$itemCount = $statement->rowCount();
 
 echo json_encode($itemCount);
 if ($itemCount > 0) {

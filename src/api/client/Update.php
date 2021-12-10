@@ -1,5 +1,6 @@
 <?php
 
+use daos\ClientDao;
 use daos\DbConnection;
 
 header("Access-Control-Allow-Origin: *");
@@ -14,13 +15,12 @@ include_once '../class/employees.php';
 $dbConnection = new DbConnection();
 $db = $dbConnection->getConnection();
 
-$item = new Client($db);
+$item = new ClientDao($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
 $item->id = $data->id;
 
-// employee values
 $item->name = $data->name;
 $item->email = $data->email;
 $item->password = $data->password;

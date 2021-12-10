@@ -1,6 +1,5 @@
 <?php
 
-use daos\ClientDao;
 use daos\DbConnection;
 
 header("Access-Control-Allow-Origin: *");
@@ -15,14 +14,19 @@ include_once '../class/employees.php';
 $dbConnection = new DbConnection();
 $db = $dbConnection->getConnection();
 
-$item = new ClientDao($db);
+$item = new Client($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
 $item->id = $data->id;
 
-if($item->deleteClient()){
-    echo json_encode("Employee deleted.");
-} else{
-    echo json_encode("Data could not be deleted");
+// employee values
+$item->name = $data->name;
+$item->email = $data->email;
+$item->password = $data->password;
+
+if ($item->updateClient()) {
+    echo json_encode("Employee data updated.");
+} else {
+    echo json_encode("Data could not be updated");
 }

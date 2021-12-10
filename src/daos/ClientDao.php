@@ -55,7 +55,7 @@ class ClientDao extends DbConnection
     }
 
     // READ single
-    public function getSingleEmployee()
+    public function getSingleClient()
     {
         $sqlQuery = "SELECT id, name, email, created FROM" . $this->db_table . "WHERE id = ? LIMIT 0,1";
 
@@ -73,7 +73,7 @@ class ClientDao extends DbConnection
     }
 
     // UPDATE
-    public function updateEmployee()
+    public function updateClient()
     {
         $sqlQuery = "UPDATE " . $this->db_table . " SET name = :name, email = :email, password = :password WHERE id = :id";
 
@@ -95,7 +95,7 @@ class ClientDao extends DbConnection
     }
 
     // DELETE
-    function deleteClients()
+    function deleteClient()
     {
         $sqlQuery = "DELETE FROM" . $this->db_table . "WHERE id = ?";
         $statement = $this->conn->prepare($sqlQuery);
