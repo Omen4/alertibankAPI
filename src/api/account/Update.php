@@ -1,5 +1,6 @@
 <?php
 
+use daos\AccountDao;
 use daos\DbConnection;
 
 header("Access-Control-Allow-Origin: *");
@@ -14,18 +15,18 @@ include_once '../class/employees.php';
 $dbConnection = new DbConnection();
 $db = $dbConnection->getConnection();
 
-$item = new Client($db);
+$item = new AccountDao($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
 $item->id = $data->id;
 
-// employee values
-$item->name = $data->name;
-$item->email = $data->email;
-$item->password = $data->password;
+// account values
+$item->wording = $data->wording;
+$item->balance = $data->balance;
+$item->overdraft = $data->overdraft;
 
-if ($item->updateClient()) {
+if ($item->updateAccount()) {
     echo json_encode("Employee data updated.");
 } else {
     echo json_encode("Data could not be updated");

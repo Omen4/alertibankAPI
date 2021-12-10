@@ -21,8 +21,8 @@ $data = json_decode(file_get_contents("php://input"));
 
 $item->id = $data->id;
 
-if($item->deleteClient()){
+if ($item->deleteClient()) {
     echo json_encode("Employee deleted.");
-} else{
+} else {
     echo json_encode("Data could not be deleted");
 }

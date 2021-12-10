@@ -1,6 +1,7 @@
 <?php
 
-use daos\ClientDao;
+
+use daos\AccountDao;
 use daos\DbConnection;
 
 header("Access-Control-Allow-Origin: *");
@@ -9,20 +10,17 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
-include_once '../config/database.php';
-include_once '../class/employees.php';
-
 $dbConnection = new DbConnection();
 $db = $dbConnection->getConnection();
 
-$item = new ClientDao($db);
+$item = new AccountDao($db);
 
 $data = json_decode(file_get_contents("php://input"));
 
 $item->id = $data->id;
 
-if($item->deleteClient()){
+if ($item->deleteAccount()) {
     echo json_encode("Employee deleted.");
-} else{
+} else {
     echo json_encode("Data could not be deleted");
 }

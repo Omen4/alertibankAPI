@@ -1,8 +1,7 @@
 <?php
 
-use daos\ClientDao;
+use daos\AccountDao;
 use daos\DbConnection;
-
 
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=UTF-8");
@@ -11,16 +10,16 @@ include_once '../config/database.php';
 include_once '../class/employees.php';
 
 $dbConnection = new DbConnection();
-$db = $dbConnection->connect();
+$db = $dbConnection->getConnection();
 
-$items = new ClientDao($db);
+$items = new AccountDao($db);
 
-$statement = $items->get();
-$itemCount = $statement->rowCount();
+$statement = $items->getAccounts();
+$itemCount = $items->rowCount();
 
 echo json_encode($itemCount);
-if ($itemCount > 0) {
 
+if ($itemCount > 0) {
     $clientsArray = array();
     $clientsArray["body"] = array();
     $clientsArray["itemCount"] = $itemCount;
@@ -37,6 +36,7 @@ if ($itemCount > 0) {
         $clientsArray["body"][] = $e;
     }
     echo json_encode($clientsArray);
+
 } else {
     http_response_code(404);
     echo json_encode(

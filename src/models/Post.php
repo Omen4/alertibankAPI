@@ -4,19 +4,20 @@ namespace models;
 class Post
 {
     //DbConnection necessities
-    private $conn;
-    private $table = 'posts';
-
-    //POST prop init
     public $id;
     public $category_id;
+
+    //POST prop init
     public $category_name;
     public $title;
     public $body;
     public $author;
     public $created_at;
+    private $conn;
+    private $table = 'posts';
 
     //Constructor with DB
+
     public function __construct($db)
     {
         $this->conn = $db;

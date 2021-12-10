@@ -15,7 +15,7 @@ class DbConnection
 
         $this->connection = null;
         try {
-            $this->connection = new PDO("mysql:host=" . $dbConfig['host'] . ";dbname=" . $dbConfig['db_name'] , $dbConfig['username'], $dbConfig['password']);
+            $this->connection = new PDO("mysql:host=" . $dbConfig['host'] . ";dbname=" . $dbConfig['db_name'], $dbConfig['username'], $dbConfig['password']);
             $this->connection->exec("set names utf8");
         } catch (PDOException $exception) {
             echo "Database could not be connected: " . $exception->getMessage();
