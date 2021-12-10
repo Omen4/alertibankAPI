@@ -1,5 +1,13 @@
 README
 
+TODO<br />
+- Ajout des fonctionnalités métier de transfert (transferFund, withdraw, deposit)  
+- Ajout de l'adapter prenant les informations obtenues du DAO et retournant l'objet
+- Abstraction en interface des méthodes CRUD et des adapters
+- Déploiement d'un systeme de routing guidé (limité via un index et une circulation sur routes)
+
+
+
 TEST (INTENTION)<br />
 Comme je ne pouvais pas tester correctement sans phpunit j'ai disséminé plusieurs echo pour vérifier 
 la qualité de mon code.
