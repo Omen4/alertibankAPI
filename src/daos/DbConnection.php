@@ -1,24 +1,25 @@
 <?php
 
 namespace daos;
+
 use PDO;
 use PDOException;
 
 class DbConnection
 {
+    public $connection;
 
-    public function connect()
+    public function getConnection()
     {
         $dbConfig = include("./src/config/dbConfig.php");
 
+        $this->connection = null;
         try {
-            $this->conn = new PDO(
-                'postgres:host=' . $dbConfig['host'] . ';dbname=' . $dbConfig['db_name'],
-                $dbConfig['username'],
-                $dbConfig['password']);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $PDOException) {
-            echo 'connection Error: ' . $PDOException->getMessage();
+            $this->connection = new PDO("mysql:host=" . $dbConfig['host'] . ";dbname=" . $dbConfig['db_name'] , $dbConfig['username'], $dbConfig['password']);
+            $this->connection->exec("set names utf8");
+        } catch (PDOException $exception) {
+            echo "Database could not be connected: " . $exception->getMessage();
         }
+        return $this->connection;
     }
 }

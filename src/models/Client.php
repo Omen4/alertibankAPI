@@ -61,10 +61,13 @@ class Client
         $this->password = $password;
     }
 
-//    public function transferFund($amount, $accountNumber){
+//    public function transferFundToAnotherAccount($amount, $accountNumber){
 //        if ($isAuth){
 //
 //        }
 //
 //    }
+
+// debiter
+// ajouter
 }
