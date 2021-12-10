@@ -9,20 +9,14 @@ class Account
     private $overdraft;
     private $clientId;
 
-    /**
-     * @param $accountId
-     * @param $wording
-     * @param $balance
-     * @param $overdraft
-     * @param $clientId
-     */
+
     public function __construct($accountId, $wording, $balance, $overdraft, $clientId)
     {
-        $this->accountId = $accountId;
+        $this->accountId = (int)$accountId;
         $this->wording = $wording;
-        $this->balance = $balance;
-        $this->overdraft = $overdraft;
-        $this->clientId = $clientId;
+        $this->balance = (double)$balance;
+        $this->overdraft = (double)$overdraft;
+        $this->clientId = (int)$clientId;
     }
 
 

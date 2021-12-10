@@ -2,6 +2,7 @@
 
 namespace daos;
 
+use config\DbConnection;
 use models\Account;
 use PDO;
 

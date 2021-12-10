@@ -2,6 +2,7 @@
 
 namespace daos;
 
+use config\DbConnection;
 use models\Client;
 use PDO;
 
@@ -38,14 +39,7 @@ class ClientDao extends DbConnection
     {
         $sqlQuery = "INSERT INTO" . $this->db_table . "SET name = :name, email = :email, password = :password";
 
-        $statement = $this->conn->prepare($sqlQuery);
-
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->password = htmlspecialchars(strip_tags($this->password));
-
-        $statement->bindParam(":name", $this->name);
-        $statement->bindParam(":email", $this->email);
+        $statement = $this->getStatement($sqlQuery);
         $statement->bindParam(":created", $this->password);
 
         if ($statement->execute()) {
@@ -55,6 +49,27 @@ class ClientDao extends DbConnection
     }
 
     // READ single
+
+    /**
+     * @param $sqlQuery
+     * @return mixed
+     */
+    public function getStatement($sqlQuery)
+    {
+        $statement = $this->conn->prepare($sqlQuery);
+
+        $this->name = htmlspecialchars(strip_tags($this->name));
+        $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->password = htmlspecialchars(strip_tags($this->password));
+
+
+        $statement->bindParam(":name", $this->name);
+        $statement->bindParam(":email", $this->email);
+        return $statement;
+    }
+
+    // UPDATE
+
     public function getSingleClient()
     {
         $sqlQuery = "SELECT id, name, email, created FROM" . $this->db_table . "WHERE id = ? LIMIT 0,1";
@@ -72,20 +87,13 @@ class ClientDao extends DbConnection
         $this->password = $dataRow['password'];
     }
 
-    // UPDATE
+    // DELETE
+
     public function updateClient()
     {
         $sqlQuery = "UPDATE " . $this->db_table . " SET name = :name, email = :email, password = :password WHERE id = :id";
 
-        $statement = $this->conn->prepare($sqlQuery);
-
-        $this->name = htmlspecialchars(strip_tags($this->name));
-        $this->email = htmlspecialchars(strip_tags($this->email));
-        $this->password = htmlspecialchars(strip_tags($this->password));
-
-
-        $statement->bindParam(":name", $this->name);
-        $statement->bindParam(":email", $this->email);
+        $statement = $this->getStatement($sqlQuery);
         $statement->bindParam(":password", $this->password);
 
         if ($statement->execute()) {
@@ -94,7 +102,6 @@ class ClientDao extends DbConnection
         return false;
     }
 
-    // DELETE
     function deleteClient()
     {
         $sqlQuery = "DELETE FROM" . $this->db_table . "WHERE id = ?";

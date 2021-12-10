@@ -13,7 +13,7 @@ class Client
 
     public function __construct($idClient, $name, $email, $password)
     {
-        $this->idClient = $idClient;
+        $this->idClient = (int)$idClient;
         $this->name = $name;
         $this->email = $email;
         $this->password = $password;
